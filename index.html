@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TSHIRT Order Form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <style>
+    /* The container */
+    .container {
+      display: block;
+      position: relative;
+      padding-left: 35px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 22px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default checkbox */
+    .container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .container:hover input~.checkmark {
+      background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .container input:checked~.checkmark {
+      background-color: #2196F3;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .container input:checked~.checkmark:after {
+      display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .container .checkmark:after {
+      left: 9px;
+      top: 5px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+  <div class="parent">
+    <figure name="myForm"
+    id="shirt_cart"
+    onsubmit="return validateForm()"
+    enctype="multipart/form-data"
+    method="put">
+    
+      <h2>Customized T-Shirt</h2>
+      <div class="image-container">
+        <img alt="profile-picture" src="Tshirt.jpg" width="200px" height="200px">
+      <div class="overlay">
+        <figcaption>Customized Tshirt</figcaption>
+      </div>
+      </div>
+    </figure>
+    <table width="40%" class="price">
+      <tr>
+        <th>Tshirt Item</th>
+        <th></th>
+        <th>Price(Rs.)</th>
+      </tr>
+      <tr>
+        <td>Plain white Tshirt</td>
+        <td> - </td>
+        <td>700.00</td>
+      </tr>
+      <tr>
+        <td>Plain Tshirt(with colour of your choice)</td>
+        <td> - </td>
+        <td>800.00</td>
+      </tr>
+      <tr>
+        <td>Plain Tshirt(with tagline of your choice)</td>
+        <td> - </td>
+        <td>800.00</td>
+      </tr>
+      <tr>
+        <td>Plain Tshirt(with colour+tagline of your choice)</td>
+        <td> - </td>
+        <td>1000.00</td>
+      </tr>
+    </table>
+  </div>
+  <div class="parent1">
+    <div class="child1">
+      <h3>
+        Apparel Information
+      </h3>
+    </div>
+    <div class="child2">
+      <label> Quantity </label>
+      <div>
+        <input type="number" data-defaultvalue="0" value="0">
+      </div>
+    </div>
+
+    <div class="child3">
+      <label> Colour(s) </label>
+      <form method="get">
+        <div>
+          <label class="container">black
+            <input type="checkbox" value="black" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">gray
+            <input type="checkbox" value="gray" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"> maroon
+            <input type="checkbox" value="maroon" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">teal
+            <input type="checkbox" value="teal" checked="checked" />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <div class="child1">
+      <h3>
+        Lettering Information
+      </h3>
+    </div>
+    <div class="child4">
+      <span>
+        Font Name
+        <div>
+          <input type="text" data-defaultvalue="" value="" placeholder=" " class="feedback-input" id="text-tshirt"
+          name="text-tshirt" required>
+        </div>
+      </span>
+    </div>
+    <div class="child5">
+      <span>
+        Arrangement
+        <div>
+          <input type="text" data-defaultvalue="" value="" placeholder=" " class="feedback-input" />
+        </div>
+      </span>
+    </div>
+    <div class="child6">
+      <span>
+        Location
+        <div>
+          <input type="text" data-defaultvalue="" value="" placeholder=" " class="feedback-input" />
+        </div>
+      </span>
+    </div>
+
+    <label> Fill Color </label>
+    <div>
+      <select data-component="dropdown">
+        <option value=""> Please Select </option>
+        <option value="black"> black </option>
+        <option value="gray"> gray </option>
+        <option value="maroon"> maroon </option>
+        <option value="teal"> teal </option>
+      </select>
+    </div>
+    <label> Outline Color </label>
+    <div>
+      <select data-component="dropdown">
+        <option value=""> Please Select </option>
+        <option value="black"> black </option>
+        <option value="gray"> gray </option>
+        <option value="maroon"> maroon </option>
+        <option value="teal"> teal </option>
+      </select>
+    </div>
+    <label> Description </label>
+    <div>
+      <textarea data-component="textarea" class="feedback-input"></textarea>
+    </div >
+    <div class="child1">
+    <h3>
+      Size
+    </h3>
+    </div>
+    <label> Size of Tshirt </label>
+    <div class="select">
+      <select data-component="dropdown" name="format" id="format" required
+      id="size" name="size">
+        <option value=""> Please Select </option>
+        <option value="S"> S </option>
+        <option value="M"> M </option>
+        <option value="L"> L </option>
+        <option value="XL"> XL </option>
+      </select>
+    </div>
+   
+    <h3>
+      Customer Information
+    </h3>
+      <table width="50%">
+        <tr>
+          <td>User name:</td>
+          <td>
+            <input type="text" placeholder="Name" class="inputf">
+          </td>
+        </tr>
+        <tr>
+          <td>Mobile: </td>
+          <td><input type="text" placeholder="Phone number" class="inputf" id="Contact" maxlength="10" required></td>
+        </tr>
+        <tr>
+          <td>Email id:</td>
+          <td>
+            <input type="email" id="email" placeholder="Email Address" class="inputf">
+          </td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>
+            <textarea data-component="textarea" class="inputf" id="address" cols="60" required rows="5" maxlength="200"></textarea>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <br>
+  <section>
+    <button  id="orderBtn" data-component="button" class="subscribe-btn">
+      Submit
+  </section>
+  <footer>
+    <h4>Social Media</h4>
+    Catch us on Instagram - <small><a href="#">@MyTshirt</a></small>
+  </footer>
+</form>
+
+</body>
+
+</html>
